@@ -1,0 +1,220 @@
+\documentclass{beamer}
+\usepackage{graphicx,url}
+\usetheme{Boadilla}
+\mode<presentation>
+
+\title{Hamiltonian Cycles and the Knight's Tour}
+\author{Anne-Marie Freudenthal}
+\date{}
+
+\begin{document}
+
+%slide 1
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%slide 2
+%What we're looking at here
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[pausesections]
+\end{frame}
+
+\section{What is Graph Theory?}
+\section{Applications}
+\section{Some Definitions}
+\section{Route Finding}
+\section{Knight's Tour}
+\section{Some Proofs}
+
+%slide 3
+%What is graph theory?
+\begin{frame}
+\frametitle{What is graph theory?} 
+\textbf{What is a graph?} \\
+\pause
+A graph is a set of vertices (dots) which are connected by edges (lines). \\
+\hspace{10mm}
+\includegraphics[scale = .3]{k72.png} \hspace{5mm}
+\includegraphics[scale = .3]{petersen2.png} \\
+\pause
+\textbf{What is graph theory?} \\
+\pause
+Graph theory is studying these graphs. \\
+\pause
+\textbf{Why is graph theory important?} \\
+\pause
+Because it's fun!  And there are many applications. \\
+\end{frame}
+
+
+%slide 4
+%Applications
+\begin{frame}
+\frametitle{Applications of Graph Theory}
+\pause
+\textbf{Coloring Maps} \\  %point out that adjacent countries don't have the same colors
+Every geographical map can be colored in with just four colors.\\
+\includegraphics[scale = .5]{4colormap.png} \hspace{3mm}
+\pause
+\includegraphics[scale = .135]{erdosgraph.png} \\
+\textbf{Interactions between different parties} \\ %come up with better more obvious examples?
+Links between webpages, social graphs, Erd\"{o}s number. \\
+\pause
+\textbf{Route Finding} \\
+Graph theory can be used to help determine the most efficient way to get from one place to another.
+\end{frame}
+
+
+%slide 5
+%Some definitions
+\begin{frame}
+\frametitle{Some Definitions}
+\textbf{Connected}:  A graph is connected when there exists a path (edges and other vertices) any one vertex to any other vertex. \\
+\pause
+\vspace{3mm}
+\textbf{Component}:  A component is a connected portion of a graph. \\
+\pause
+\vspace{3mm}
+\textbf{Cycle}: A sequence of adjacent vertices which starts and ends at the same place.  No vertex can be re-used. \\
+\pause
+\vspace{3mm}
+\textbf{Hamiltonian Cycle}: A cycle which visits every vertex in the graph.
+\end{frame}
+
+%slide 6
+%Route Finding
+\begin{frame}
+\frametitle{Route Finding}
+We want to find the most efficient way to visit every vertex in the graph. \\ 
+\pause
+\vspace{2mm}
+The first question is:  How do we even know if the graph can have a Hamiltonian cycle? \\
+\pause
+\vspace{5mm}
+\textbf{Theorem}: If $G$ has a Hamiltonian cycle, then for each nonempty set $S \subseteq V$, the graph $G$ has at most $|S|$ components. \\
+\pause
+\vspace{5mm}
+That is to say: If you remove a set of vertices $S$, then if $G$ has a Hamiltonian cycle, it will have at most same number of components left over as there were vertices in $S$.
+\end{frame}
+
+
+%slide 7
+%Why is a Hamiltonian cycle useful?
+\begin{frame}
+\frametitle{Application of Hamiltonian Cycles}
+\textbf{Traveling Salesman} \\
+The salesman needs to travel efficiently from city to city.  How does he plan his route? \\
+\pause
+\vspace{3mm}
+\textbf{Airlines} \\
+Routing planes the most efficiently from city to city. \\
+\pause
+\vspace{3mm}
+\textbf{Knight's Tour} \\
+Moving the knight around chessboards of different sizes to see if he can move to every square exactly once and return to his starting point.
+\end{frame}
+
+%slide 8
+%Knight's Tour 
+\begin{frame}
+\frametitle{Knight's Tour}
+\begin{columns}[T]
+\begin{column}[T]{5cm}
+\vspace{5mm}
+You're a knight.  The queen has threatened to behead you unless you slay the bad guys on every square of a chessboard as quickly as possible. \\
+\vspace{3mm}
+What's the best way to get this done?
+\end{column}
+\begin{column}[T]{5cm}
+\includegraphics[scale = .3]{knight.jpg} \\
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%slide 7
+%movement
+\begin{frame}
+\frametitle{Knight Movement}
+\hspace{2mm}
+\includegraphics[scale=.47]{chess.jpg} 
+\pause
+\hspace{7mm}
+\includegraphics[scale = .28]{kgraph.png} \\
+\end{frame}
+
+%slide 8
+%Proof
+\begin{frame}
+\frametitle{Some Proofs}
+Assume the chessboard is $m x n$ in size. \\  %What does connected mean?
+\vspace{2mm}
+\textbf{Proposition}: When $m$ and $n$ are both odd, the board will not have a knight's tour. \\
+\textbf{Proof}:  We know that the knight can only move from black to white or white to black.  Any closed tour will need to visit an equal number of white and black squares, but because the total size of the board is odd, there can't be an equal number of black and white squares.  A closed tour cannot be constructed on a board with odd size. \\
+\vspace{2mm}
+\hspace{13mm}
+\includegraphics[scale = .5]{coloredgraph.png}
+\end{frame}
+
+
+%slide 9 
+%more proofs
+\begin{frame}
+\frametitle{More Proofs}
+\textbf{Proposition}:  When $m = 1$ or $2$, a knights tour does not exist. \\
+\textbf{Proof}:  For $m = 1$ and $m = 2$ it's obvious that there isn't enough room for the knight to move around.\\
+\vspace{3mm}
+\textbf{Proposition:}  When $m = 3$ and $n = 6$, or $8$, there is no knight's tour. \\
+\textbf{Proof:}  For each case a set $S$ of vertices can be chosen, which, when deleted from the graph, leaves more than $|S|$ components.
+\end{frame}
+
+
+%slide 10
+%m = 4
+\begin{frame}
+\frametitle{When $m = 4$}
+\textbf{Proposition}:  When $m = 4$, no matter what $n$ equals, there is no knight's tour. \\
+\textbf{Proof}:  Same idea!  Choose a set $S$ of vertices which, when deleted from the graph, leave more than $|S|$ components.  Using $4 x 6$ as a base case, by induction, any chessboard of size $4 x n$ will not have a knight's tour.   \\
+\vspace{3mm}
+\textbf{\textit{Schwenk's Theorem}}: An $m x n$ chessboard with $m \leq n$ has a knight's tour unless: \\
+\hspace{2mm} a) $m$ and $n$ are both odd; \\
+\hspace{2mm} b) $m = 1$, $2$, or $4$; \\
+\hspace{2mm} c) $m = 3$ and $n = 4$, $6$, or $8$. \\
+\end{frame}
+
+
+%slide 11
+%8x8 knights tours examples
+\begin{frame}
+\frametitle{$8x8$ chessboard}
+\vspace{-15mm}
+\hspace{1.5cm}
+\includegraphics[scale = .4]{kt1.pdf}
+\end{frame}
+
+%slide last
+%References
+\begin{frame}
+\textbf{References} \\
+D. B. West, \textit{Introduction to Graph Theory}, Prentice Hall, 2000. \\
+\vspace{2mm}
+B. Hill, K. Tostado, \textit{Knight's Tours}, \url{http://faculty.olin.edu/~sadams/DM/ktpaper.pdf}, 2004. \\
+\vspace{2mm}
+P. Bergonio, \textit{Hamiltonian Circuits}, \url{http://www.math.uga.edu/~pbergonio/F13/DM/2.pdf}. \\
+\vspace{5mm}
+\footnotesize
+\textbf{Images} \\
+\url{http://people.math.gatech.edu/~thomas/FC/fourcolor.html} \\
+\url{http://blogs.law.harvard.edu/michaellaw/2013/11/29/} \\
+\url{http://logo-kid.com/knight-chess-logo.htm} \\
+\url{http://www.oocities.org/gumbochumat/pastex/pastexam6.html}
+\url{http://en.wikipedia.org/wiki/Knight's_tour}
+\url{http://scientopia.org/img-archive/goodmath/img_268.png}
+\url{http://files.chess.com/images_users/tiny_mce/kurtgodden/knighttourgraphs.gif}
+\end{frame}
+\end{document}
+
+
